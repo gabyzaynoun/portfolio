@@ -19,7 +19,7 @@ const portfolioData = {
     "Fast iteration without compromising maintainability"
   ],
   stats: [
-    { value: "8+", label: "Shipped Projects" },
+    { value: "9+", label: "Shipped Projects" },
     { value: "4", label: "Years Building Software" },
     { value: "Now", label: "AI Product Focus" }
   ],
@@ -116,6 +116,14 @@ const portfolioData = {
       category: "Web",
       stack: ["HTML", "CSS", "JavaScript"],
       codeUrl: "https://github.com/gabyzaynoun/tradiespark-website"
+    },
+    {
+      title: "Car Sales Project",
+      summary:
+        "PHP and MySQL web app for selling cars, with customer management, inventory CRUD, and recent-listing workflows.",
+      category: "Full-Stack",
+      stack: ["PHP", "MySQL", "CRUD", "Web App"],
+      codeUrl: "https://github.com/gabyzaynoun/carproject"
     },
     {
       title: "BlastRing",
