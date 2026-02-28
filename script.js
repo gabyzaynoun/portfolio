@@ -33,6 +33,9 @@ const portfolioData = {
     "React",
     "Next.js",
     "FastAPI",
+    "MySQL",
+    "Firebase",
+    "Supabase",
     "Product Architecture"
   ],
   story: [
