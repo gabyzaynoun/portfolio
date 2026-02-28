@@ -121,7 +121,7 @@ const portfolioData = {
       codeUrl: "https://github.com/gabyzaynoun/tradiespark-website"
     },
     {
-      title: "Car Sales Project",
+      title: "Car Project",
       summary:
         "PHP and MySQL web app for selling cars, with customer management, inventory CRUD, and recent-listing workflows.",
       category: "Full-Stack",
