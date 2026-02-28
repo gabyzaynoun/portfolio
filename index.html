@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gaby Zaynoun | Portfolio</title>
+    <meta
+      name="description"
+      content="Gaby Zaynoun portfolio: AI product engineering, full-stack builds, and software architecture work."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="bg-shape shape-a" aria-hidden="true"></div>
+    <div class="bg-shape shape-b" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#top" class="brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span id="brand-name">Gaby Zaynoun</span>
+        </a>
+
+        <nav class="top-nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#story">Story</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a data-link="email" class="pill-link" href="#">Start Conversation</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="container hero reveal">
+        <div class="hero-main">
+          <p class="kicker">Software Engineer / Solution Architect</p>
+          <h1 id="hero-headline">Building AI products people actually use.</h1>
+          <p id="hero-tagline" class="hero-lead"></p>
+
+          <div class="cta-row">
+            <a data-link="github" class="button primary" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a data-link="linkedin" class="button secondary" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a data-link="email" class="button ghost" href="#">Email</a>
+          </div>
+
+          <ul id="hero-stats" class="stat-row" aria-label="Portfolio highlights"></ul>
+        </div>
+
+        <aside class="hero-side">
+          <figure class="portrait-card">
+            <img id="portrait-image" src="assets/profile-placeholder.svg" alt="Portrait of Gaby Zaynoun" />
+            <figcaption>
+              <strong id="portrait-name">Gaby Zaynoun</strong>
+              <span id="portrait-role">Software Engineer / Solution Architect</span>
+            </figcaption>
+          </figure>
+
+          <article class="status-card">
+            <p class="card-label">Current Focus</p>
+            <h2 id="open-to-text"></h2>
+            <ul id="focus-list" class="focus-list"></ul>
+          </article>
+
+          <article class="meta-row">
+            <div class="meta-card">
+              <p>Location</p>
+              <strong id="location-text"></strong>
+            </div>
+            <div class="meta-card">
+              <p>Email</p>
+              <a id="email-link" data-link="email" href="#"></a>
+            </div>
+          </article>
+        </aside>
+      </section>
+
+      <section id="spotlight" class="container reveal">
+        <div class="section-heading">
+          <p class="section-kicker">Featured Build</p>
+          <h2>Project Spotlight</h2>
+        </div>
+        <article id="spotlight-card" class="spotlight-card"></article>
+      </section>
+
+      <section id="about" class="container reveal">
+        <div class="section-heading">
+          <p class="section-kicker">Profile</p>
+          <h2>Technical Identity</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel">
+            <h3>About Me</h3>
+            <p id="about-text"></p>
+          </article>
+
+          <article class="panel">
+            <h3>Core Stack</h3>
+            <ul id="skills-list" class="skill-cloud" aria-label="Skills"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="container reveal">
+        <div class="section-heading split">
+          <div>
+            <p class="section-kicker">Portfolio</p>
+            <h2>Project Wall</h2>
+          </div>
+          <div id="project-filters" class="filters" aria-label="Project categories"></div>
+        </div>
+
+        <div id="project-grid" class="project-grid"></div>
+      </section>
+
+      <section id="story" class="container reveal">
+        <div class="section-heading">
+          <p class="section-kicker">Timeline</p>
+          <h2>Career Story</h2>
+        </div>
+        <ul id="story-list" class="timeline" aria-label="Career timeline"></ul>
+      </section>
+
+      <section id="contact" class="container reveal">
+        <article class="contact-panel">
+          <p class="section-kicker">Let's Build</p>
+          <h2>Ship Something That Matters</h2>
+          <p>
+            If you need someone who can move from idea to architecture to shipped product,
+            let's talk.
+          </p>
+
+          <div class="cta-row">
+            <a data-link="email" class="button primary" href="#">Send Email</a>
+            <a data-link="github" class="button secondary" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a data-link="linkedin" class="button ghost" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p><span id="year"></span> <span id="footer-name"></span> | Built for serious product teams.</p>
+    </footer>
+  </body>
+</html>
