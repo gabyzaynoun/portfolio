@@ -24,3 +24,12 @@ Premium one-page portfolio built with plain HTML, CSS, and JavaScript.
 
 ## Run
 Open `index.html` in your browser.
+
+## Portrait Photo
+- Place your portrait image at `assets/gaby-zaynoun.jpg`.
+- If that file is missing, the site automatically uses `assets/profile-placeholder.svg`.
+
+## Deploy (Vercel)
+- This project is static and ready for Vercel.
+- Repo: `https://github.com/gabyzaynoun/portfolio`
+- Import the repo in Vercel and deploy.
