@@ -19,7 +19,7 @@ const portfolioData = {
     "Fast iteration without compromising maintainability"
   ],
   stats: [
-    { value: "7+", label: "Shipped Projects" },
+    { value: "8+", label: "Shipped Projects" },
     { value: "4", label: "Years Building Software" },
     { value: "Now", label: "AI Product Focus" }
   ],
@@ -116,10 +116,17 @@ const portfolioData = {
       category: "Web",
       stack: ["HTML", "CSS", "JavaScript"],
       codeUrl: "https://github.com/gabyzaynoun/tradiespark-website"
+    },
+    {
+      title: "BlastRing",
+      summary:
+        "Unity mobile game where players control a ring that blasts enemies across wave-based levels, with boss fights, power-ups (Double Ring, Mega Blast, Rapid Fire, Shield, Time Slow), combo tracking, achievements, skin customization, and ad integration.",
+      category: "Game",
+      stack: ["Unity", "C#", "Mobile Game", "Ad Integration"],
+      codeUrl: "https://github.com/gabyzaynoun/BlastRing"
     }
   ]
 };
-
 const links = {
   github: portfolioData.links.github,
   linkedin: portfolioData.links.linkedin,
