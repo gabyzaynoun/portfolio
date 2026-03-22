@@ -3,38 +3,43 @@
 const projects = [
   {
     title: "Tileverse",
-    desc: "A digital tile coordinate marketplace — your own permanent spot on a shared 1,000,000-tile map for creators, freelancers, and businesses.",
+    desc: "A digital marketplace where users purchase, own, and customise unique tile coordinates on a shared 1,000,000-tile grid. Full payment integration and anti-abuse system.",
     stack: ["Next.js", "Supabase", "Stripe", "Claude API"],
     liveUrl: "https://tileverses.com",
   },
   {
     title: "CalcSolve",
-    desc: "An AI calculus solver SaaS with step-by-step solutions across derivatives, integrals, and more — plus gamified skill trees and an AI tutor.",
+    desc: "SaaS calculus solver with step-by-step explanations, an AI tutor, gamified skill trees, and Stripe billing. Deployed on Vercel.",
     stack: ["Next.js", "Supabase", "Stripe", "Claude API"],
     liveUrl: "https://calcsolve.app",
   },
   {
     title: "TradieSpark",
-    desc: "Mobile-first local business website focused on conversion and clear service communication for Australian tradies.",
-    stack: ["WordPress", "Claude Code"],
+    desc: "Service business building professional websites for Australian tradies. Brand, website, pricing, onboarding, and outbound sales — built from scratch.",
+    stack: ["WordPress", "Claude Code", "SEO"],
     liveUrl: "https://tradiespark.com.au",
     codeUrl: "https://github.com/gabyzaynoun/tradiespark-website",
   },
   {
+    title: "FindByType",
+    desc: "Personality-based quiz platform with product recommendations, affiliate monetisation (Amazon Associates, Commission Factory), and an Android TWA wrapper.",
+    stack: ["Next.js", "React", "Stripe", "Amazon Associates"],
+  },
+  {
     title: "Q-Lex",
-    desc: "A sci-fi thriller novel with 150 AI-generated illustrations, publishing on Amazon KDP.",
-    stack: ["AI Image Generation", "KDP"],
+    desc: "Sci-fi/tech thriller novel with 150 AI-generated illustrations. Prepared for launch on Amazon KDP and Gumroad with a 30-day launch plan.",
+    stack: ["AI Image Generation", "Amazon KDP"],
   },
   {
     title: "AI Dental Assistant",
-    desc: "GenAI dental assistant with multi-session chat, summaries, tagging, PDF export, and cloud-backed history.",
+    desc: "Full-stack web app with multi-session chat memory, intelligent response orchestration, and PDF export. Auth and data via Firebase/Firestore.",
     stack: ["React", "Firebase", "OpenAI API", "Vite"],
     liveUrl: "https://ai-dental-assistant.vercel.app",
     codeUrl: "https://github.com/gabyzaynoun/ai-dental-assistant",
   },
   {
     title: "Cloud Uncensored AI",
-    desc: "AI chat product combining a React frontend with a Python FastAPI backend, deployed on Vercel.",
+    desc: "AI chat product pairing a React frontend with a Python FastAPI backend, deployed on Vercel.",
     stack: ["React", "FastAPI", "Python"],
     liveUrl: "https://cloud-uncensored-ai-app.vercel.app",
     codeUrl: "https://github.com/gabyzaynoun/cloud-uncensored-ai-app",
@@ -46,20 +51,14 @@ const projects = [
     codeUrl: "https://github.com/gabyzaynoun/doctor-roster",
   },
   {
-    title: "Quiz App",
-    desc: "Interactive quiz platform built with Next.js and TypeScript.",
-    stack: ["Next.js", "TypeScript", "React"],
-    codeUrl: "https://github.com/gabyzaynoun/quiz-app",
-  },
-  {
     title: "BlastRing",
-    desc: "Unity mobile game — wave-based ring shooter with boss fights, power-ups, combo tracking, achievements, and skin customization.",
-    stack: ["Unity", "C#", "Mobile"],
+    desc: "Mobile game published on Google Play Store — wave-based ring shooter with boss fights, power-ups, combo tracking, and skin customization.",
+    stack: ["Unity", "C#", "Google Play"],
     codeUrl: "https://github.com/gabyzaynoun/BlastRing",
   },
   {
     title: "Car Sales App",
-    desc: "PHP and MySQL web app for selling cars, with customer management, inventory CRUD, and recent-listing workflows.",
+    desc: "PHP/MySQL web app for selling cars with customer management, inventory CRUD, and recent-listing workflows.",
     stack: ["PHP", "MySQL"],
     codeUrl: "https://github.com/gabyzaynoun/carproject",
   },
@@ -67,43 +66,63 @@ const projects = [
 
 const skillGroups = [
   {
-    title: "AI & LLM",
-    items: ["Claude API & Claude Code", "Prompt Engineering", "LLM Integration", "AI Image Generation", "OpenAI API", "RAG Pipelines", "NLP"],
+    title: "AI & ML",
+    items: ["OpenAI API", "Anthropic Claude API", "Claude Code", "TensorFlow", "Prompt Engineering", "RAG Fundamentals", "AI Image Generation"],
   },
   {
     title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML / CSS", "Responsive Design", "Vite"],
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "TailwindCSS", "HTML / CSS", "Vite"],
   },
   {
-    title: "Backend",
-    items: ["C#", "Java", "Python", "FastAPI", "Node.js", "PHP", "Supabase", "Firebase", "MySQL", "SQLite", "OOP", "REST APIs"],
+    title: "Backend & Data",
+    items: ["C#", ".NET / WPF", "Python", "FastAPI", "Node.js", "PHP", "MySQL", "PostgreSQL", "Firebase", "Supabase", "Docker"],
   },
   {
-    title: "Enterprise & Presales",
-    items: ["Solution Architecture", "Technical Presales", "Product Scoping", "Client Communication", "Requirements Analysis", "Demo Delivery"],
+    title: "Cloud & Enterprise",
+    items: ["Azure DevOps", "Vercel", "CI/CD Pipelines", "REST APIs", "Stripe Integration", "Technical Presales", "Solution Architecture", "Stakeholder Communication"],
   },
 ];
 
-const timeline = [
-  {
-    date: "2020 — 2024",
-    title: "BEng, Lebanese International University",
-    desc: "Engineering foundation — systems thinking, maths, and structured problem-solving.",
-  },
-  {
-    date: "2024 — 2025",
-    title: "MSc Artificial Intelligence, Torrens University",
-    desc: "Focused on machine learning, NLP, and applied AI for real-world product development.",
-  },
-  {
-    date: "2022 — 2025",
-    title: "Software Engineer (3 years)",
-    desc: "Built and maintained C#/WPF applications, supported CAD/CAM workflows, and improved reliability of production engineering tooling.",
-  },
+const experience = [
   {
     date: "Nov 2025 — Present",
-    title: "Presales Engineer, Westcon-Comstor",
-    desc: "Technical presales — solution scoping, architecture alignment, and client-facing demo delivery for enterprise technology.",
+    title: "Presales Specialist — Westcon-Comstor, Sydney",
+    desc: "Technical point of contact for channel partners across networking and cybersecurity vendor portfolios.",
+    highlights: [
+      "Scope and propose solutions based on customer environment assessments",
+      "Prepare technical quotations aligned with commercial targets",
+      "Break down vendor technologies for non-technical buyers",
+      "Handle multiple partner engagements under tight SLAs",
+    ],
+  },
+  {
+    date: "Feb 2022 — Aug 2025",
+    title: "Software Engineer — Stoneglass Industries, Sydney",
+    desc: "Built and maintained C#/.NET CAD/CAM desktop applications used daily across dental manufacturing production lines.",
+    highlights: [
+      "Wrote and debugged WPF tools for production workflows over three years",
+      "Automated CNC milling and 3D print job assignment — cut manual processing time by ~60%",
+      "Built a TensorFlow model for 3D dental alignment that beat ICP by ~25%",
+      "Set up CI/CD pipelines through Azure DevOps for the engineering team",
+    ],
+  },
+];
+
+const education = [
+  {
+    date: "2020 — 2021",
+    title: "Master of Engineering — Torrens University, Australia",
+    desc: "Advanced engineering studies with focus on applied AI and systems design.",
+  },
+  {
+    date: "2019 — 2020",
+    title: "Master of Computer Science — Lebanese International University",
+    desc: "Graduate-level CS covering algorithms, machine learning, and software architecture.",
+  },
+  {
+    date: "2016 — 2019",
+    title: "BSc in Engineering — Lebanese International University",
+    desc: "Engineering foundation — systems thinking, mathematics, and structured problem-solving.",
   },
 ];
 
@@ -178,27 +197,30 @@ function renderSkills() {
     .join("");
 }
 
-function renderTimeline() {
-  const el = document.getElementById("timeline");
+function renderTimeline(data, containerId) {
+  const el = document.getElementById(containerId);
   if (!el) return;
 
-  el.innerHTML = timeline
-    .map(
-      (t) => `
-      <div class="timeline-item">
-        <p class="timeline-date">${t.date}</p>
-        <h3 class="timeline-title">${t.title}</h3>
-        <p class="timeline-desc">${t.desc}</p>
-      </div>
-    `
-    )
+  el.innerHTML = data
+    .map((t) => {
+      const highlightsHtml = t.highlights
+        ? `<ul class="timeline-highlights">${t.highlights.map((h) => `<li>${h}</li>`).join("")}</ul>`
+        : "";
+      return `
+        <div class="timeline-item">
+          <p class="timeline-date">${t.date}</p>
+          <h3 class="timeline-title">${t.title}</h3>
+          <p class="timeline-desc">${t.desc}</p>
+          ${highlightsHtml}
+        </div>
+      `;
+    })
     .join("");
 }
 
 function renderRoles() {
   const grid = document.getElementById("rolesGrid");
   if (!grid) return;
-
   grid.innerHTML = roles.map((r) => `<span class="role-tag">${r}</span>`).join("");
 }
 
@@ -225,35 +247,29 @@ function setupCursor() {
   });
 
   function animateRing() {
-    ringX += (mouseX - ringX) * 0.15;
-    ringY += (mouseY - ringY) * 0.15;
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
     ring.style.left = ringX + "px";
     ring.style.top = ringY + "px";
     requestAnimationFrame(animateRing);
   }
   animateRing();
 
-  // Hover effect on interactive elements
   const hoverTargets = "a, button, .project-card, .role-tag";
   document.addEventListener("mouseover", (e) => {
-    if (e.target.closest(hoverTargets)) {
-      document.body.classList.add("cursor-hover");
-    }
+    if (e.target.closest(hoverTargets)) document.body.classList.add("cursor-hover");
   });
   document.addEventListener("mouseout", (e) => {
-    if (e.target.closest(hoverTargets)) {
-      document.body.classList.remove("cursor-hover");
-    }
+    if (e.target.closest(hoverTargets)) document.body.classList.remove("cursor-hover");
   });
 
-  // Hide cursor when it leaves the window
   document.addEventListener("mouseleave", () => {
     dot.style.opacity = "0";
     ring.style.opacity = "0";
   });
   document.addEventListener("mouseenter", () => {
     dot.style.opacity = "1";
-    ring.style.opacity = "0.5";
+    ring.style.opacity = "0.4";
   });
 }
 
@@ -266,14 +282,13 @@ function setupReveal() {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Stagger animations for sibling elements
           const siblings = entry.target.parentElement.querySelectorAll(
             ".project-card, .skill-group, .timeline-item"
           );
           const index = Array.from(siblings).indexOf(entry.target);
-          const delay = index >= 0 ? index * 80 : 0;
+          const delay = index >= 0 ? index * 70 : 0;
 
           setTimeout(() => {
             entry.target.classList.add("in-view");
@@ -282,7 +297,7 @@ function setupReveal() {
         }
       });
     },
-    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }
   );
 
   targets.forEach((t) => observer.observe(t));
@@ -313,7 +328,8 @@ function setupMobileMenu() {
 document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   renderSkills();
-  renderTimeline();
+  renderTimeline(experience, "experienceTimeline");
+  renderTimeline(education, "educationTimeline");
   renderRoles();
   renderYear();
   setupCursor();

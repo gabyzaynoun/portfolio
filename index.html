@@ -21,6 +21,10 @@
   <!-- Grid background -->
   <div class="bg-grid" aria-hidden="true"></div>
 
+  <!-- Ambient glow -->
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
@@ -28,7 +32,8 @@
       <div class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#career">Career</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
         <a href="#contact" class="nav-cta">Get in touch</a>
       </div>
       <button class="nav-toggle" aria-label="Toggle menu">
@@ -41,7 +46,8 @@
   <div class="mobile-menu">
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
-    <a href="#career">Career</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
     <a href="#contact">Get in touch</a>
   </div>
 
@@ -73,10 +79,6 @@
         <div class="portrait-frame">
           <img id="portrait-image" src="assets/gaby-zaynoun.jpg" alt="Gaby Zaynoun" onerror="this.src='assets/profile-placeholder.svg'" />
         </div>
-        <div class="portrait-label">
-          <strong>Gaby Zaynoun</strong>
-          <span>AI Engineer &middot; Sydney</span>
-        </div>
       </div>
     </div>
   </section>
@@ -99,12 +101,21 @@
     </div>
   </section>
 
-  <!-- Career -->
-  <section id="career" class="section">
+  <!-- Experience -->
+  <section id="experience" class="section">
     <div class="container">
-      <p class="section-label reveal">Background</p>
-      <h2 class="section-heading reveal">Career</h2>
-      <div class="timeline" id="timeline"></div>
+      <p class="section-label reveal">Career</p>
+      <h2 class="section-heading reveal">Experience</h2>
+      <div class="timeline" id="experienceTimeline"></div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="section">
+    <div class="container">
+      <p class="section-label reveal">Academics</p>
+      <h2 class="section-heading reveal">Education</h2>
+      <div class="timeline timeline--edu" id="educationTimeline"></div>
     </div>
   </section>
 
