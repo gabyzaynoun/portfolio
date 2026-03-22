@@ -1,20 +1,20 @@
 /* ─── Design Tokens ──────────────────────────────── */
 :root {
-  --bg: #0a0e17;
-  --bg-soft: #0f1520;
-  --surface: #141c2b;
-  --surface-hover: #1a2438;
-  --text: #e8ecf4;
-  --text-secondary: #b0bdd0;
-  --text-muted: #6e839e;
-  --cyan: #00e5ff;
-  --cyan-dim: rgba(0, 229, 255, 0.08);
-  --cyan-glow: rgba(0, 229, 255, 0.3);
-  --orange: #ff6b35;
-  --orange-dim: rgba(255, 107, 53, 0.08);
-  --orange-glow: rgba(255, 107, 53, 0.3);
-  --line: rgba(255, 255, 255, 0.07);
-  --line-strong: rgba(255, 255, 255, 0.13);
+  --bg: #101828;
+  --bg-soft: #162033;
+  --surface: #1c2840;
+  --surface-hover: #24324e;
+  --text: #f0f3f9;
+  --text-secondary: #c0ccdf;
+  --text-muted: #7e94b4;
+  --cyan: #00d4f5;
+  --cyan-dim: rgba(0, 212, 245, 0.1);
+  --cyan-glow: rgba(0, 212, 245, 0.35);
+  --orange: #ff7a45;
+  --orange-dim: rgba(255, 122, 69, 0.1);
+  --orange-glow: rgba(255, 122, 69, 0.35);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.16);
   --radius: 14px;
   --font-heading: "Syne", sans-serif;
   --font-body: "DM Mono", monospace;
@@ -34,7 +34,7 @@ body {
   font-size: 14px;
   line-height: 1.7;
   color: var(--text);
-  background: var(--bg);
+  background: linear-gradient(180deg, #101828 0%, #0d1422 50%, #121e30 100%);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -111,19 +111,19 @@ a:hover { color: #fff; }
 }
 
 .glow-1 {
-  width: 500px; height: 500px;
-  background: rgba(0, 229, 255, 0.06);
-  top: -15%;
-  left: -10%;
-  animation: float 20s ease-in-out infinite;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0, 212, 245, 0.12) 0%, transparent 70%);
+  top: -10%;
+  left: -8%;
+  animation: float 18s ease-in-out infinite;
 }
 
 .glow-2 {
-  width: 400px; height: 400px;
-  background: rgba(255, 107, 53, 0.05);
-  bottom: -10%;
-  right: -10%;
-  animation: float 25s ease-in-out infinite reverse;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255, 122, 69, 0.1) 0%, transparent 70%);
+  bottom: -5%;
+  right: -8%;
+  animation: float 22s ease-in-out infinite reverse;
 }
 
 @keyframes float {
@@ -144,7 +144,7 @@ a:hover { color: #fff; }
   top: 0; left: 0; right: 0;
   z-index: 100;
   backdrop-filter: blur(20px) saturate(1.6);
-  background: rgba(10, 14, 23, 0.85);
+  background: rgba(16, 24, 40, 0.88);
   border-bottom: 1px solid var(--line);
 }
 
@@ -235,7 +235,7 @@ a:hover { color: #fff; }
   top: 64px;
   left: 0; right: 0;
   z-index: 99;
-  background: rgba(10, 14, 23, 0.97);
+  background: rgba(16, 24, 40, 0.97);
   backdrop-filter: blur(24px);
   padding: 1rem 1.5rem 1.5rem;
   display: flex;
@@ -470,9 +470,10 @@ a:hover { color: #fff; }
 }
 
 .project-card:hover {
-  border-color: rgba(0, 229, 255, 0.15);
+  border-color: rgba(0, 212, 245, 0.2);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 229, 255, 0.04);
+  background: var(--surface-hover);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 0 30px rgba(0, 212, 245, 0.06);
 }
 
 .project-card:hover::before { opacity: 1; }
