@@ -68,15 +68,15 @@ const projects = [
 const skillGroups = [
   {
     title: "AI & LLM",
-    items: ["Claude API & Claude Code", "Prompt Engineering", "LLM Integration", "AI Image Generation", "OpenAI API", "RAG Pipelines"],
+    items: ["Claude API & Claude Code", "Prompt Engineering", "LLM Integration", "AI Image Generation", "OpenAI API", "RAG Pipelines", "NLP"],
   },
   {
     title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "HTML / CSS", "Responsive Design", "Vite"],
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML / CSS", "Responsive Design", "Vite"],
   },
   {
     title: "Backend",
-    items: ["FastAPI", "Python", "Node.js", "Supabase", "Firebase", "MySQL", "PHP"],
+    items: ["C#", "Java", "Python", "FastAPI", "Node.js", "PHP", "Supabase", "Firebase", "MySQL", "SQLite", "OOP", "REST APIs"],
   },
   {
     title: "Enterprise & Presales",
