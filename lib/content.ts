@@ -16,12 +16,12 @@ export type Project = {
 };
 
 export const NOW =
-  "Right now: shipping the VAISS Compliance Auditor, prepping AWS AI Practitioner + Solutions Architect Associate, and watching how Australian enterprise AI governance evolves under VAISS.";
+  "Right now: building toward an AWS deployment of the VAISS Compliance Auditor as a hands-on learning project, while working through the AWS AI Practitioner and Solutions Architect Associate certifications.";
 
 export const SUGGESTED_HERO_QUESTIONS = [
   "What has he built with agentic AI?",
   "Tell me about VAISS",
-  "Is he open to roles?",
+  "What's his AWS experience?",
 ] as const;
 
 export type SkillGroup = {
@@ -84,7 +84,7 @@ export const SKILLS: SkillGroup[] = [
     items: [
       "Full-stack development — Next.js, TypeScript, React",
       "Backend & APIs — Node.js, serverless, Supabase",
-      "Cloud deployment — Vercel, AWS (Bedrock, Lambda, Amplify)",
+      "Cloud deployment — Vercel (production). Currently learning AWS",
       "Database design — PostgreSQL / Supabase",
     ],
   },
@@ -185,15 +185,18 @@ export const MORE_PROJECTS: Project[] = [
     description: "",
     stack: ["Next.js", "React", "Stripe", "Amazon Associates"],
     tags: ["Full-Stack", "Product"],
+    liveUrl: "https://findbytype.com.au",
   },
   {
     slug: "q-lex",
     title: "Q-Lex",
     oneLiner:
-      "Completed sci-fi thriller novel with 150 AI-generated illustrations. Prepped for Amazon KDP + Gumroad launch.",
+      "Completed sci-fi cyberpunk thriller novel with 150 AI-generated illustrations. Published on Amazon.",
     description: "",
     stack: ["AI Image Generation", "Amazon KDP"],
     tags: ["Creative", "AI-Assisted"],
+    liveUrl:
+      "https://www.amazon.com.au/Q-Lex-Cyberpunk-Thriller-Gaby-Zaynoun-ebook/dp/B0GSN83LPR",
   },
   {
     slug: "blast-ring",
@@ -236,7 +239,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     org: "Westcon-Comstor",
     location: "Sydney",
     summary:
-      "Technical presales at one of APAC's largest IT distributors — solution scoping across major vendor portfolios, with an AWS focus.",
+      "Technical point of contact for channel partners across networking and cybersecurity vendor portfolios at one of APAC's largest IT distributors.",
     highlights: [
       "Scope and propose solutions based on customer environment assessments",
       "Prepare technical quotations aligned with commercial targets",
