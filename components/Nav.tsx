@@ -15,9 +15,9 @@ export function Nav() {
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
         <Link
           href="#hero"
-          className="font-mono text-sm font-medium tracking-tight text-[var(--color-fg)] hover:text-[var(--color-accent)] transition-colors"
+          className="text-sm font-semibold tracking-tight text-[var(--color-fg)] hover:text-[var(--color-accent)] transition-colors"
         >
-          gaby<span className="text-[var(--color-accent)]">.</span>zaynoun
+          Gaby <span className="text-[var(--color-accent)]">Zaynoun</span>
         </Link>
         <div className="hidden md:flex items-center gap-7 text-sm text-[var(--color-fg-muted)]">
           {LINKS.map((link) => (

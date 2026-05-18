@@ -67,7 +67,7 @@ An agentic AI application that audits any AI system against Australia's Voluntar
 
 **Building with AI:** Agentic system design (multi-agent orchestration, tool use, planning); LLM application development (Anthropic Claude API, prompt engineering, structured output); RAG and knowledge-grounded systems; streaming AI interfaces (real-time generation, SSE); AI evaluation and calibration.
 
-**Engineering:** Full-stack development (Next.js, TypeScript, React); backend and APIs (Node.js, serverless, Supabase); cloud deployment (Vercel, AWS — Bedrock, Lambda, Amplify); database design (PostgreSQL / Supabase).
+**Engineering:** Full-stack development (Next.js, TypeScript, React); backend and APIs (Node.js, serverless, Supabase); cloud deployment (Vercel, AWS Bedrock); database design (PostgreSQL / Supabase).
 
 **AI for Enterprise:** Technical presales and solution scoping; AI governance and compliance (Australian Voluntary AI Safety Standard); translating AI capability into business value; customer-facing technical communication.
 

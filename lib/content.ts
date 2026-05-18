@@ -84,7 +84,7 @@ export const SKILLS: SkillGroup[] = [
     items: [
       "Full-stack development — Next.js, TypeScript, React",
       "Backend & APIs — Node.js, serverless, Supabase",
-      "Cloud deployment — Vercel, AWS (Bedrock, Lambda, Amplify)",
+      "Cloud deployment — Vercel, AWS (Bedrock)",
       "Database design — PostgreSQL / Supabase",
     ],
   },
