@@ -70,7 +70,10 @@ export function ChatPanel({
       setShowSuggestions(false);
       const userMsg: Message = { role: "user", content: trimmed };
       const assistantMsg: Message = { role: "assistant", content: "" };
-      const next = [...messages, userMsg];
+      // Drop any leftover empty assistant placeholders from prior failed/aborted turns
+      // before appending the new user message — the server rejects empty content.
+      const cleanedHistory = messages.filter((m) => m.content.trim().length > 0);
+      const next = [...cleanedHistory, userMsg];
       setMessages([...next, assistantMsg]);
       setInput("");
       setStreaming(true);
