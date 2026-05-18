@@ -1,4 +1,37 @@
+# Dependencies
 node_modules/
+.pnp/
+.pnp.js
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Vercel
 .vercel/
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
 .DS_Store
 Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Local Claude Code dev tooling (launch config, preview state)
+.claude/
+
+# Legacy static site (preserved from pre-rebuild)
+_legacy/

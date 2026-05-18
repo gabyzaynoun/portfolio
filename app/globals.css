@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  /* Use literal font names — Tailwind v4 @theme resolves at parse time,
+     so var(--font-geist-sans) won't work here. */
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+
+  /* Color tokens — single accent (warm coral) on near-black */
+  --color-bg: #0a0a0f;
+  --color-bg-elev: #12121a;
+  --color-bg-elev-2: #1a1a25;
+  --color-border: #26263a;
+  --color-border-strong: #3a3a55;
+  --color-fg: #f5f5f7;
+  --color-fg-muted: #b8b8c8;
+  --color-fg-subtle: #8a8aa0;
+  --color-accent: #ff7849;
+  --color-accent-hover: #ff8d63;
+  --color-accent-soft: rgba(255, 120, 73, 0.12);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-fg);
+  }
+
+  /* Focus ring — consistent across all interactive elements */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Subtle ambient gradient — applied to body via ::before in layout for perf */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      ellipse 800px 600px at 15% 0%,
+      rgba(255, 120, 73, 0.06),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 700px 500px at 95% 30%,
+      rgba(120, 100, 255, 0.04),
+      transparent 60%
+    );
+}
+
+/* Reveal-on-scroll utility — set initial state, JS adds .in-view */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
