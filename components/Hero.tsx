@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HERO, SUGGESTED_HERO_QUESTIONS } from "@/lib/content";
+import { HERO, ROLE_BADGES, SITE, SUGGESTED_HERO_QUESTIONS } from "@/lib/content";
 import { AskAIButton, AskAIChip } from "./AskAIButton";
 
 export function Hero() {
@@ -25,17 +25,34 @@ export function Hero() {
               {HERO.name.split(" ").slice(1).join(" ")}
             </span>
           </h1>
-          <p
-            className="reveal mt-6 font-mono text-base text-[var(--color-fg-muted)] md:text-lg"
-            style={{ transitionDelay: "80ms" }}
+          <div
+            className="reveal mt-6 flex flex-wrap items-center gap-x-3 gap-y-2"
+            style={{ transitionDelay: "60ms" }}
           >
-            {HERO.title}
-          </p>
+            {ROLE_BADGES.map((role, i) => (
+              <span key={role} className="inline-flex items-center gap-3">
+                <span className="font-mono text-sm text-[var(--color-fg-muted)] md:text-base">
+                  {role}
+                </span>
+                {i < ROLE_BADGES.length - 1 && (
+                  <span className="text-[var(--color-fg-subtle)]" aria-hidden="true">
+                    ·
+                  </span>
+                )}
+              </span>
+            ))}
+          </div>
           <p
             className="reveal mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-fg)] md:text-xl"
             style={{ transitionDelay: "160ms" }}
           >
             {HERO.subhead}
+          </p>
+          <p
+            className="reveal mt-3 max-w-xl text-sm italic text-[var(--color-fg-muted)]"
+            style={{ transitionDelay: "200ms" }}
+          >
+            &ldquo;{HERO.kicker}&rdquo;
           </p>
           <p
             className="reveal mt-4 max-w-xl text-sm text-[var(--color-fg-subtle)]"
@@ -55,6 +72,14 @@ export function Hero() {
               View Projects
               <ArrowDownIcon />
             </Link>
+            <a
+              href={SITE.resumeUrl}
+              download
+              className="inline-flex h-11 items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elev)] px-5 text-sm text-[var(--color-fg)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+            >
+              <DownloadIcon />
+              Download Resume
+            </a>
             <Link
               href="#contact"
               className="inline-flex h-11 items-center gap-2 px-3 text-sm text-[var(--color-fg-muted)] hover:text-[var(--color-fg)] transition-colors"
@@ -117,6 +142,24 @@ function ArrowDownIcon() {
       aria-hidden="true"
     >
       <path d="M12 5v14M19 12l-7 7-7-7" />
+    </svg>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
     </svg>
   );
 }

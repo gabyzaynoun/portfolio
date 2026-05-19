@@ -11,6 +11,7 @@ export type Project = {
   stack: string[];
   tags: string[];
   metric?: string; // short headline-style metric for featured cards
+  image?: string; // public-relative path, e.g. "/projects/vaiss.jpg"
   liveUrl?: string;
   codeUrl?: string;
 };
@@ -52,7 +53,15 @@ export const SITE = {
   email: "gabyzaynoun6@gmail.com",
   linkedin: "https://www.linkedin.com/in/gaby-zaynoun-a453631bb/",
   github: "https://github.com/gabyzaynoun",
+  resumeUrl: "/Gaby-Zaynoun-Resume.docx",
 } as const;
+
+export const ROLE_BADGES = [
+  "AI Solutions Engineer",
+  "Software Engineer",
+  "Technical Presales",
+  "4+ years building & shipping",
+] as const;
 
 export const HERO = {
   name: "Gaby Zaynoun",
@@ -60,11 +69,12 @@ export const HERO = {
   subhead:
     "I design and ship agentic AI systems, and I help enterprises understand what AI can actually do for them.",
   supporting:
-    "Sydney, Australia · Software engineering background, Master of Software Engineering (AI Advanced) · Open to AI Solutions Engineer, AI presales, and AI consulting roles",
+    "Sydney, Australia · 4+ years across C#/.NET, full-stack, and AI · Open to AI Solutions Engineer, AI presales, and consulting roles.",
+  kicker: "I learn by building things and putting them in front of real users.",
 } as const;
 
 export const ABOUT =
-  "I'm an AI Solutions Engineer based in Sydney. My background is in software engineering — I hold a Master of Software Engineering with an AI Advanced specialisation — and I currently work in technical presales at one of APAC's largest IT distributors. I build agentic AI systems end-to-end, and I help enterprises cut through the noise to understand what AI can practically do for them. I'm bilingual in English and Arabic.";
+  "Software engineer with 4+ years across C#/.NET desktop applications, full-stack web, and AI integration. Currently in a technical presales role at Westcon-Comstor covering networking and cybersecurity vendors. Outside of work I build and ship my own products — web apps, SaaS tools, a mobile game, a marketplace, a book — using Next.js, React, Supabase, Stripe, and the OpenAI/Claude APIs. I learn by building things and putting them in front of real users. Bilingual in English and Arabic.";
 
 /* ─── Skills ─────────────────────────────────────────────────────────────── */
 
@@ -82,10 +92,11 @@ export const SKILLS: SkillGroup[] = [
   {
     title: "Engineering",
     items: [
-      "Full-stack development — Next.js, TypeScript, React",
-      "Backend & APIs — Node.js, serverless, Supabase",
-      "Cloud deployment — Vercel (production). Currently learning AWS",
-      "Database design — PostgreSQL / Supabase",
+      "Full-stack — Next.js, TypeScript, React, .NET, WPF",
+      "Backend & APIs — Node.js, serverless, REST",
+      "Cloud — Azure (hands-on, DevOps CI/CD), Vercel (production), Firebase, Supabase",
+      "AWS & GCP — academic, with VAISS AWS deployment in flight",
+      "Databases — PostgreSQL, MySQL, Firestore",
     ],
   },
   {
@@ -121,6 +132,7 @@ export const FEATURED_PROJECTS: Project[] = [
     ],
     tags: ["Agentic AI", "LLM Orchestration", "AI Governance", "Full-Stack"],
     metric: "60s audit · 5-stage agent pipeline · 10 guardrails · ~3¢ per run",
+    image: "/projects/vaiss.jpg",
     liveUrl: "https://vaiss-auditor.vercel.app",
     codeUrl: "https://github.com/gabyzaynoun/vaiss-auditor",
   },
@@ -133,7 +145,8 @@ export const FEATURED_PROJECTS: Project[] = [
       "CalcSolve is a production SaaS that solves calculus problems end-to-end and teaches the steps. The AI engine breaks each problem into named techniques (substitution, integration by parts, partial fractions, etc.) and walks the student through each step in natural language. Gamified skill trees give students a progression model, and Stripe handles tiered subscriptions. The challenge wasn't 'solve calculus' — LLMs can do that. It was wrapping the model in a UI that turns a one-shot answer into a teaching loop, with prompt structures that keep the explanations consistent and pedagogically sound.",
     stack: ["Next.js", "Supabase", "Stripe", "Claude API"],
     tags: ["AI/LLM", "SaaS", "EdTech"],
-    metric: "Production SaaS · Step-by-step solver · Stripe billing live",
+    metric: "Production SaaS · 10,000+ students · Step-by-step solver · Stripe billing live",
+    image: "/projects/calcsolve.jpg",
     liveUrl: "https://calcsolve.app",
   },
   {
@@ -146,6 +159,7 @@ export const FEATURED_PROJECTS: Project[] = [
     stack: ["React", "Vite", "Firebase", "OpenAI API"],
     tags: ["AI/LLM", "Vertical AI", "Full-Stack"],
     metric: "Domain-grounded AI · Built on 3 years shipping for dental manufacturing",
+    image: "/projects/ai-dental.jpg",
     liveUrl: "https://ai-dental-assistant.vercel.app",
     codeUrl: "https://github.com/gabyzaynoun/ai-dental-assistant",
   },
@@ -159,6 +173,7 @@ export const FEATURED_PROJECTS: Project[] = [
     stack: ["Next.js", "Supabase", "Stripe", "Claude API"],
     tags: ["Full-Stack", "Marketplace", "SaaS"],
     metric: "1,000,000-tile grid · Built solo · Stripe + anti-abuse system in production",
+    image: "/projects/tileverse.jpg",
     liveUrl: "https://tileverses.com",
   },
   {
@@ -171,6 +186,7 @@ export const FEATURED_PROJECTS: Project[] = [
     stack: ["WordPress", "Claude Code", "SEO"],
     tags: ["Full-Stack", "Productised Service"],
     metric: "Fixed-scope, fixed-price · Brand + site + sales operated solo",
+    image: "/projects/tradiespark.jpg",
     liveUrl: "https://tradiespark.com.au",
     codeUrl: "https://github.com/gabyzaynoun/tradiespark-website",
   },
@@ -185,6 +201,7 @@ export const MORE_PROJECTS: Project[] = [
     description: "",
     stack: ["Next.js", "React", "Stripe", "Amazon Associates"],
     tags: ["Full-Stack", "Product"],
+    image: "/projects/findbytype.jpg",
     liveUrl: "https://findbytype.com.au",
   },
   {
