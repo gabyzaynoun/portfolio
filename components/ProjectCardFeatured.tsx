@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Project } from "@/lib/content";
 import { ProjectSummaryLink } from "./ProjectSummaryLink";
 
@@ -16,7 +17,18 @@ export function ProjectCardFeatured({
       style={{ transitionDelay: `${delay}ms` }}
       {...(defaultOpen ? { open: true } : {})}
     >
-      <summary className="flex cursor-pointer list-none items-start gap-4 p-7 [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none gap-5 p-5 [&::-webkit-details-marker]:hidden md:p-6">
+        {project.image && (
+          <div className="relative hidden h-28 w-44 shrink-0 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-elev-2)] sm:block md:h-32 md:w-52">
+            <Image
+              src={project.image}
+              alt={`${project.title} screenshot`}
+              fill
+              sizes="(max-width: 768px) 0px, 200px"
+              className="object-cover object-top"
+            />
+          </div>
+        )}
         <div className="flex-1 min-w-0">
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <h3 className="text-xl font-semibold text-[var(--color-fg)]">
@@ -40,7 +52,7 @@ export function ProjectCardFeatured({
             </p>
           )}
         </div>
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 flex-col items-end gap-2 sm:flex-row sm:items-center">
           {project.liveUrl && (
             <ProjectSummaryLink href={project.liveUrl} label="Live" variant="primary" />
           )}
@@ -51,7 +63,7 @@ export function ProjectCardFeatured({
         </div>
       </summary>
 
-      <div className="border-t border-[var(--color-border)] px-7 pt-6 pb-7">
+      <div className="border-t border-[var(--color-border)] px-5 pt-6 pb-7 md:px-6">
         <p className="mb-5 text-base leading-relaxed text-[var(--color-fg-muted)]">
           {project.description}
         </p>
@@ -81,7 +93,7 @@ function ChevronIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="ml-1 mt-1 shrink-0 text-[var(--color-fg-subtle)] transition-transform group-open:rotate-180"
+      className="ml-1 shrink-0 text-[var(--color-fg-subtle)] transition-transform group-open:rotate-180"
       aria-hidden="true"
     >
       <path d="M6 9l6 6 6-6" />
