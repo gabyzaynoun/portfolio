@@ -145,7 +145,7 @@ export const FEATURED_PROJECTS: Project[] = [
       "CalcSolve is a production SaaS that solves calculus problems end-to-end and teaches the steps. The AI engine breaks each problem into named techniques (substitution, integration by parts, partial fractions, etc.) and walks the student through each step in natural language. Gamified skill trees give students a progression model, and Stripe handles tiered subscriptions. The challenge wasn't 'solve calculus' — LLMs can do that. It was wrapping the model in a UI that turns a one-shot answer into a teaching loop, with prompt structures that keep the explanations consistent and pedagogically sound.",
     stack: ["Next.js", "Supabase", "Stripe", "Claude API"],
     tags: ["AI/LLM", "SaaS", "EdTech"],
-    metric: "Production SaaS · 10,000+ students · Step-by-step solver · Stripe billing live",
+    metric: "Production SaaS · Step-by-step solver · Stripe billing live",
     image: "/projects/calcsolve.jpg",
     liveUrl: "https://calcsolve.app",
   },

@@ -58,7 +58,7 @@ Live: vaiss-auditor.vercel.app. GitHub: github.com/gabyzaynoun/vaiss-auditor.
 
 ## Other projects
 
-CalcSolve. Production SaaS AI calculus solver with 10,000+ students. Solves problems end-to-end with step-by-step explanations, AI tutor, gamified skill trees, and Stripe billing across free + Pro tiers. Stack: Next.js, Supabase, Stripe, Claude API. Live at calcsolve.app.
+CalcSolve. Production SaaS AI calculus solver. Solves problems end-to-end with step-by-step explanations, AI tutor, gamified skill trees, and Stripe billing across free + Pro tiers. Stack: Next.js, Supabase, Stripe, Claude API. Live at calcsolve.app.
 
 AI Dental Assistant. Full-stack AI assistant built specifically for the dental vertical — directly building on the three years Gaby spent shipping CAD/CAM tools for dental manufacturing at Stoneglass. Multi-session chat memory, intelligent response orchestration, PDF export for clinical workflows, Firebase/Firestore. React + Vite + OpenAI API. Live at ai-dental-assistant.vercel.app.
 
