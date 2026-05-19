@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "compress-portrait": "node scripts/compress-portrait.mjs",
-    "compress-thumbnails": "node scripts/compress-thumbnails.mjs"
+    "compress-thumbnails": "node scripts/compress-thumbnails.mjs",
+    "generate-resume": "node scripts/generate-resume.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.40.0",
@@ -22,6 +23,7 @@
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "docx": "^9.6.1",
     "eslint": "^9.16.0",
     "eslint-config-next": "^15.5.0",
     "sharp": "^0.34.0",
