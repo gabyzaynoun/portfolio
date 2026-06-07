@@ -17,7 +17,7 @@ export type Project = {
 };
 
 export const NOW =
-  "Right now: building toward an AWS deployment of the VAISS Compliance Auditor as a hands-on learning project, while working through the AWS AI Practitioner and Solutions Architect Associate certifications.";
+  "Right now: AWS Certified AI Practitioner (just completed), building toward an AWS deployment of the VAISS Compliance Auditor as a hands-on learning project, and working through the AWS Solutions Architect Associate certification.";
 
 export const SUGGESTED_HERO_QUESTIONS = [
   "What has he built with agentic AI?",
@@ -95,7 +95,7 @@ export const SKILLS: SkillGroup[] = [
       "Full-stack — Next.js, TypeScript, React, .NET, WPF",
       "Backend & APIs — Node.js, serverless, REST",
       "Cloud — Azure (hands-on, DevOps CI/CD), Vercel (production), Firebase, Supabase",
-      "AWS & GCP — academic, with VAISS AWS deployment in flight",
+      "AWS — Certified AI Practitioner, with VAISS AWS deployment in flight",
       "Databases — PostgreSQL, MySQL, Firestore",
     ],
   },
@@ -302,9 +302,9 @@ export const EDUCATION: EducationEntry[] = [
     detail: "AI Fluency · Building with the Claude API",
   },
   {
-    date: "In Progress",
-    title: "AWS Certification Track",
+    date: "Certified",
+    title: "AWS Certified AI Practitioner",
     org: "Amazon Web Services",
-    detail: "AI Practitioner · Solutions Architect Associate",
+    detail: "Solutions Architect Associate — in progress",
   },
 ];

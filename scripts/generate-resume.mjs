@@ -318,7 +318,7 @@ const doc = new Document({
         ),
         skillRow(
           "Cloud & DevOps",
-          "Azure (hands-on, DevOps CI/CD), Vercel (production), Firebase, Supabase. AWS & GCP — academic, with the VAISS AWS deployment in flight as a hands-on learning project. CI/CD via Azure DevOps and GitHub Actions. Docker basics.",
+          "Azure (hands-on, DevOps CI/CD), Vercel (production), Firebase, Supabase. AWS — Certified AI Practitioner, with the VAISS AWS deployment in flight as a hands-on learning project. GCP — academic. CI/CD via Azure DevOps and GitHub Actions. Docker basics.",
         ),
         skillRow("Databases", "PostgreSQL (Supabase), MySQL, Firestore"),
         skillRow(
@@ -375,7 +375,7 @@ const doc = new Document({
           "Anthropic Academy — AI Fluency · Building with the Claude API (certified)",
         ),
         bullet(
-          "AWS AI Practitioner & Solutions Architect Associate — actively studying",
+          "AWS Certified AI Practitioner (certified) · AWS Solutions Architect Associate — in progress",
         ),
 
         /* ─── Languages ─── */

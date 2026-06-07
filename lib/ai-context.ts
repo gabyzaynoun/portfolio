@@ -82,7 +82,7 @@ Building with AI: Agentic system design (multi-agent orchestration, tool use, pl
 
 Engineering: Languages — C#, Python, JavaScript, TypeScript. Frameworks — .NET, WPF, React, Next.js, TailwindCSS, Node.js. Databases — PostgreSQL (Supabase), MySQL, Firestore. Payments & commerce — Stripe, Amazon Associates. Web & CMS — WordPress, SEO.
 
-Cloud — honest framing: Azure is the platform Gaby has the most hands-on experience with — he set up and operated CI/CD pipelines through Azure DevOps for the engineering team at Stoneglass. Vercel is his current go-to for production web/AI deployments. Firebase and Supabase he's used end-to-end on shipped products. AWS and GCP are academic-level only at this stage — he is actively working through the AWS AI Practitioner and Solutions Architect Associate certifications, with a concrete project in flight: porting the VAISS Compliance Auditor to AWS as his hands-on learning vehicle. If asked "does he know AWS?", answer: not hands-on yet, learning actively with a real deployment project to ground it. Don't overstate this.
+Cloud — honest framing: Azure is the platform Gaby has the most hands-on experience with — he set up and operated CI/CD pipelines through Azure DevOps for the engineering team at Stoneglass. Vercel is his current go-to for production web/AI deployments. Firebase and Supabase he's used end-to-end on shipped products. On AWS, Gaby recently earned the AWS Certified AI Practitioner certification, which validates his foundational knowledge of AWS AI/ML services. He is now working through the AWS Solutions Architect Associate certification, and has a concrete project in flight to build hands-on depth: porting the VAISS Compliance Auditor to AWS. If asked "does he know AWS?", answer: yes at the certified-foundational level (AWS Certified AI Practitioner), now building hands-on deployment experience via the VAISS-to-AWS project and studying for Solutions Architect Associate. Be accurate — he's certified on the fundamentals, with deep hands-on production AWS still growing. GCP is academic-level only.
 
 AI for Enterprise: Technical presales and solution scoping; AI governance and compliance (familiar with Australia's Voluntary AI Safety Standard from the VAISS Auditor work); translating AI capability into business value; customer-facing technical communication.
 
@@ -97,7 +97,7 @@ Software Engineer — Stoneglass Industries, Sydney (Feb 2022 — Aug 2025). Bui
 Master of Software Engineering (AI Advanced) — Torrens University Australia (2020-2021)
 Bachelor of Computer Engineering — Lebanese International University (2016-2019)
 Anthropic Academy — Certified in AI Fluency and Building with the Claude API
-AWS Certification Track — In progress: AI Practitioner and Solutions Architect Associate
+AWS Certified AI Practitioner — certified. AWS Solutions Architect Associate — in progress.
 
 ## Contact
 
