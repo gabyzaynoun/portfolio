@@ -10,7 +10,7 @@ export function Contact() {
         Let&rsquo;s talk
       </h2>
       <p className="reveal mb-10 max-w-2xl text-lg leading-relaxed text-[var(--color-fg-muted)]">
-        Open to AI Solutions Engineer, AI presales, and AI consulting opportunities in
+        Open to talk about AI Solutions Engineer, AI presales, and AI consulting opportunities in
         Australia.
       </p>
 
