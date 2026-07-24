@@ -69,7 +69,7 @@ export const HERO = {
   subhead:
     "I design and ship agentic AI systems, and I help enterprises understand what AI can actually do for them.",
   supporting:
-    "Sydney, Australia · 4+ years across C#/.NET, full-stack, and AI · Open to AI Solutions Engineer, AI presales, and consulting roles.",
+    "Sydney, Australia · 4+ years across C#/.NET, full-stack, and AI.",
   kicker: "I learn by building things and putting them in front of real users.",
 } as const;
 
