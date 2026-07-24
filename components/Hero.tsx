@@ -11,13 +11,6 @@ export function Hero() {
     >
       <div className="grid items-center gap-12 md:grid-cols-[1.4fr_1fr] md:gap-16">
         <div>
-          <div className="reveal mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-elev)] px-3 py-1.5 text-xs text-[var(--color-fg-muted)]">
-            <span
-              className="inline-block size-1.5 rounded-full bg-[var(--color-accent)]"
-              aria-hidden="true"
-            />
-            Open to AI Solutions Engineer roles · Sydney
-          </div>
           <h1 className="reveal text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
             {HERO.name.split(" ")[0]}
             <br />
