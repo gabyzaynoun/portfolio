@@ -9,6 +9,10 @@ export const dynamic = "force-dynamic";
 const MAX_MESSAGES = 12;
 const MAX_MSG_CHARS = 2000;
 const MAX_OUTPUT_TOKENS = 600;
+// Everything below must finish inside vercel.json's maxDuration (60s) with
+// room to spare, so a stall becomes a readable message rather than a 504.
+const HARD_CAP_MS = 20_000; // whole request
+const STALL_MS = 8_000; // no token for this long => treat as stalled
 const MODEL = "claude-haiku-4-5";
 
 type IncomingMessage = { role: "user" | "assistant"; content: string };
@@ -19,13 +23,12 @@ function getClient(): Anthropic {
   if (!_client) {
     _client = new Anthropic({
       apiKey: env.ANTHROPIC_API_KEY,
-      // Fail inside our own handler rather than being hard-killed by Vercel.
-      // maxDuration for this route is 60s; give up at 45s so the catch below
-      // can stream a real message back instead of the client seeing a 504.
-      timeout: 45_000, // ms
-      // The SDK default of 2 retries stacks latency on an already-slow call,
-      // which is what pushed requests past the old 30s ceiling.
-      maxRetries: 1,
+      // The SDK applies `timeout` PER ATTEMPT, so the real ceiling is
+      // timeout x (maxRetries + 1). Keep that product well under this route's
+      // 60s maxDuration or the function gets hard-killed before any handler
+      // code can run, and the caller sees a bare 504 instead of a message.
+      timeout: HARD_CAP_MS,
+      maxRetries: 0,
     });
   }
   return _client;
@@ -92,17 +95,38 @@ export async function POST(req: Request) {
   const encoder = new TextEncoder();
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
+      // Own the abort rather than trusting upstream to return. Two guards: a
+      // hard cap on the whole request, and a stall detector for a stream that
+      // goes quiet mid-answer (the SDK timeout covers neither once bytes have
+      // started flowing). Declared out here so catch/finally can see them.
+      const ac = new AbortController();
+      let stalled = false;
+      let stallTimer: ReturnType<typeof setTimeout> | undefined;
+      const hardCap = setTimeout(() => ac.abort(), HARD_CAP_MS);
+      const beat = () => {
+        if (stallTimer) clearTimeout(stallTimer);
+        stallTimer = setTimeout(() => {
+          stalled = true;
+          ac.abort();
+        }, STALL_MS);
+      };
+      beat();
+
       try {
         const client = getClient();
+
         const claudeStream = client.messages.stream({
           model: MODEL,
           max_tokens: MAX_OUTPUT_TOKENS,
           system: SYSTEM_PROMPT,
           messages: messages.map((m) => ({ role: m.role, content: m.content })),
-        });
+        }, { signal: ac.signal });
 
         claudeStream.on("text", (delta) => {
-          if (delta) emit(controller, encoder, { type: "delta", text: delta });
+          if (delta) {
+            beat();
+            emit(controller, encoder, { type: "delta", text: delta });
+          }
         });
 
         await claudeStream.finalMessage();
@@ -110,13 +134,18 @@ export async function POST(req: Request) {
       } catch (err) {
         const message =
           err instanceof Error ? err.message : "Unknown error from AI service";
+        const timedOut =
+          stalled || (err instanceof Error && err.name === "AbortError");
         emit(controller, encoder, {
           type: "error",
-          message:
-            "Sorry, the assistant hit an error. Please reach out via the Contact section.",
+          message: timedOut
+            ? "That took longer than usual and I stopped waiting — please ask again. If it keeps happening, the Contact section has Gaby's email."
+            : "Sorry, the assistant hit an error. Please reach out via the Contact section.",
         });
-        console.error("Chat route error:", message);
+        console.error("Chat route error:", timedOut ? `timeout/stall: ${message}` : message);
       } finally {
+        clearTimeout(hardCap);
+        if (stallTimer) clearTimeout(stallTimer);
         controller.close();
       }
     },
