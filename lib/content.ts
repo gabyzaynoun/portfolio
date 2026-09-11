@@ -17,7 +17,7 @@ export type Project = {
 };
 
 export const NOW =
-  "Right now: building GabyGPT, a private assistant running entirely on a local model with no API in the request path. Alongside it, porting the VAISS Compliance Auditor to AWS as a hands-on deployment project, and working through the AWS Solutions Architect Associate certification, alongside AWS proof-of-concept work in Westcon's cloud practice.";
+  "Right now: building GabyGPT, a private assistant running on a local model with no API in the request path — now on the phone as well as the desktop. Alongside it, porting the VAISS Compliance Auditor to AWS as a hands-on deployment project, and working through the AWS Solutions Architect Associate certification, alongside AWS proof-of-concept work in Westcon's cloud practice.";
 
 export const SUGGESTED_HERO_QUESTIONS = [
   "What has he built with agentic AI?",
@@ -144,12 +144,14 @@ export const FEATURED_PROJECTS: Project[] = [
     oneLiner:
       "A private assistant that runs entirely on a local model — no OpenAI or Anthropic API anywhere in the request path.",
     description:
-      "GabyGPT runs a stock Qwen3.5-4B through LM Studio on localhost. The model isn't the interesting part — the architecture around it is. Three things are kept deliberately separate and separately versioned: the system policy (authoritative, how to behave), persistent memory (user-provided facts and preferences), and the conversation itself. " +
-      "Qwen3.5 rejects a second system message, so policy and memory have to ride in one. Policy goes first; memory is explicitly framed as context that does not override it. That framing is the whole trick — without it, a remembered preference can quietly outrank a behavioural rule, and you get an assistant that drifts without ever telling you why. " +
-      "It's honest about what it is. The weights are stock, so the behaviour comes entirely from policy, memory, and context — not a fine-tune. Keeping that distinction sharp is what makes it possible to later measure prompting against an actually fine-tuned model, instead of guessing which one did the work.",
-    stack: ["TypeScript", "Node.js", "LM Studio", "Qwen3.5-4B", "Local inference"],
-    tags: ["Local LLM", "Agent Design", "Prompt Architecture"],
-    metric: "Runs fully offline · Zero API cost · ~3s cold start via JIT model load",
+      "GabyGPT runs a stock Qwen3.5-4B with no hosted API anywhere in the request path. It runs on two devices from one shared core: the desktop over LM Studio, and Android with the model executing on the phone's own silicon — the phone half needs no desktop, no server and no network, so it works in airplane mode with the PC switched off. " +
+      "The model isn't the interesting part; the architecture around it is. Three things are kept deliberately separate and separately versioned: the system policy (authoritative, how to behave), persistent memory (facts and preferences), and the conversation. Qwen3.5 rejects a second system message, so policy and memory ride in one — policy first, memory explicitly framed as context that does not override it. That framing is the whole trick: without it, a remembered preference can quietly outrank a behavioural rule and the assistant drifts without ever telling you why. " +
+      "It is built to be measured rather than vibed. A frozen 41-case benchmark is the baseline, a separate memory benchmark tests recall, and a contamination gate keeps eval cases out of the training corpus. Corrections are captured in-session and reviewed by hand before they land, and forgetting a memory archives it rather than destroying it, so the memory state stays auditable. " +
+      "It is honest about what it is: the weights are stock, so the behaviour comes from policy, memory and context — not a fine-tune. Keeping that distinction sharp is what makes it possible to later measure prompting against an actually fine-tuned model instead of guessing which one did the work.",
+    stack: ["TypeScript", "Node.js", "LM Studio", "llama.rn", "Qwen3.5-4B", "On-device inference"],
+    tags: ["Local LLM", "Agent Design", "Evals"],
+    metric: "Offline on desktop and on-device Android · Zero API cost · 41-case frozen eval benchmark",
+    image: "/projects/gabygpt.jpg",
   },
   {
     slug: "pdf-to-excel",
@@ -164,6 +166,8 @@ export const FEATURED_PROJECTS: Project[] = [
     stack: ["Python", "FastAPI", "PyMuPDF", "pdfplumber", "Tesseract OCR", "OpenCV"],
     tags: ["Document AI", "OCR", "Automation"],
     metric: "In use by colleagues at work · Born-digital + scanned + hybrid · Per-cell confidence scoring",
+    image: "/projects/pdf-to-excel.jpg",
+    liveUrl: "https://pdf-to-excel-converter-bq06.onrender.com",
   },
   {
     slug: "calcsolve",
