@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gaby Zaynoun — AI Solutions Engineer",
     description:
-      "I design and ship agentic AI systems. Sydney-based. Open to AI Solutions Engineer, presales, and consulting roles.",
+      "I design and ship agentic AI systems, and I help enterprises understand what AI can actually do for them. Sydney-based.",
     type: "website",
     locale: "en_AU",
     siteName: "Gaby Zaynoun",

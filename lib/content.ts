@@ -17,12 +17,12 @@ export type Project = {
 };
 
 export const NOW =
-  "Right now: AWS Certified AI Practitioner (just completed), building toward an AWS deployment of the VAISS Compliance Auditor as a hands-on learning project, and working through the AWS Solutions Architect Associate certification.";
+  "Right now: building GabyGPT, a private assistant running entirely on a local model with no API in the request path. Alongside it, porting the VAISS Compliance Auditor to AWS as a hands-on deployment project, and working through the AWS Solutions Architect Associate certification, alongside AWS proof-of-concept work in Westcon's cloud practice.";
 
 export const SUGGESTED_HERO_QUESTIONS = [
   "What has he built with agentic AI?",
   "Tell me about VAISS",
-  "What's his AWS experience?",
+  "What is GabyGPT?",
 ] as const;
 
 export type SkillGroup = {
@@ -53,7 +53,8 @@ export const SITE = {
   email: "gabyzaynoun6@gmail.com",
   linkedin: "https://www.linkedin.com/in/gaby-zaynoun-a453631bb/",
   github: "https://github.com/gabyzaynoun",
-  resumeUrl: "/Gaby-Zaynoun-Resume.docx",
+  resumeUrl: "/Gaby-Zaynoun-Resume.pdf",
+  resumeDocxUrl: "/Gaby-Zaynoun-Resume.docx",
 } as const;
 
 export const ROLE_BADGES = [
@@ -74,7 +75,7 @@ export const HERO = {
 } as const;
 
 export const ABOUT =
-  "Software engineer with 4+ years across C#/.NET desktop applications, full-stack web, and AI integration. Currently in a technical presales role at Westcon-Comstor covering networking and cybersecurity vendors. Outside of work I build and ship my own products — web apps, SaaS tools, a mobile game, a marketplace, a book — using Next.js, React, Supabase, Stripe, and the OpenAI/Claude APIs. I learn by building things and putting them in front of real users. Bilingual in English and Arabic.";
+  "Software engineer with 4+ years across C#/.NET desktop applications, full-stack web, and AI integration. Currently in a technical presales role at Westcon-Comstor covering networking and cybersecurity vendors. Outside of work I build and ship my own products — web apps, SaaS tools, mobile games on Google Play, a marketplace, a locally-hosted AI assistant, a book — using Next.js, React, Supabase, Stripe, and both hosted and self-hosted models. I learn by building things and putting them in front of real users. Bilingual in English and Arabic.";
 
 /* ─── Skills ─────────────────────────────────────────────────────────────── */
 
@@ -87,6 +88,7 @@ export const SKILLS: SkillGroup[] = [
       "RAG & knowledge-grounded systems",
       "Streaming AI interfaces — real-time generation, SSE",
       "AI evaluation & calibration",
+      "Local model deployment — self-hosted open weights, policy & memory design",
     ],
   },
   {
@@ -95,7 +97,7 @@ export const SKILLS: SkillGroup[] = [
       "Full-stack — Next.js, TypeScript, React, .NET, WPF",
       "Backend & APIs — Node.js, serverless, REST",
       "Cloud — Azure (hands-on, DevOps CI/CD), Vercel (production), Firebase, Supabase",
-      "AWS — Certified AI Practitioner, with VAISS AWS deployment in flight",
+      "AWS — Certified AI Practitioner, hands-on presales in Westcon's AWS Cloud practice, Solutions Architect Associate in progress",
       "Databases — PostgreSQL, MySQL, Firestore",
     ],
   },
@@ -135,6 +137,33 @@ export const FEATURED_PROJECTS: Project[] = [
     image: "/projects/vaiss.jpg",
     liveUrl: "https://vaiss-auditor.vercel.app",
     codeUrl: "https://github.com/gabyzaynoun/vaiss-auditor",
+  },
+  {
+    slug: "gabygpt",
+    title: "GabyGPT",
+    oneLiner:
+      "A private assistant that runs entirely on a local model — no OpenAI or Anthropic API anywhere in the request path.",
+    description:
+      "GabyGPT runs a stock Qwen3.5-4B through LM Studio on localhost. The model isn't the interesting part — the architecture around it is. Three things are kept deliberately separate and separately versioned: the system policy (authoritative, how to behave), persistent memory (user-provided facts and preferences), and the conversation itself. " +
+      "Qwen3.5 rejects a second system message, so policy and memory have to ride in one. Policy goes first; memory is explicitly framed as context that does not override it. That framing is the whole trick — without it, a remembered preference can quietly outrank a behavioural rule, and you get an assistant that drifts without ever telling you why. " +
+      "It's honest about what it is. The weights are stock, so the behaviour comes entirely from policy, memory, and context — not a fine-tune. Keeping that distinction sharp is what makes it possible to later measure prompting against an actually fine-tuned model, instead of guessing which one did the work.",
+    stack: ["TypeScript", "Node.js", "LM Studio", "Qwen3.5-4B", "Local inference"],
+    tags: ["Local LLM", "Agent Design", "Prompt Architecture"],
+    metric: "Runs fully offline · Zero API cost · ~3s cold start via JIT model load",
+  },
+  {
+    slug: "pdf-to-excel",
+    title: "Universal PDF-to-Excel Converter",
+    oneLiner:
+      "Turns any PDF — born-digital, scanned, or hybrid — into structured, Excel-ready tables with per-cell confidence scoring.",
+    description:
+      "Pulling a table out of a PDF is trivial when the PDF is well-behaved and close to impossible when it isn't. This handles the cases that break naive extractors: unruled tables with no grid lines to anchor on, tables that continue across page breaks, merged cells, and scanned pages where OCR has to run before there's any text to parse at all. " +
+      "The output is a real .xlsx workbook rather than a CSV dump — one sheet per table, frozen bold headers, auto-filter, auto-fitted columns, and currency stored as actual numbers, so Excel can total a column while still displaying 'AUD 115,000.00'. The results grid behaves like a spreadsheet: drag-select a range, shift-click to extend, Ctrl+C pastes straight into Excel. " +
+      "Every cell carries a confidence score and low-confidence cells are flagged for review — because the failure mode that actually hurts with OCR isn't missing data, it's wrong data that looks right. " +
+      "It started as a way to take the tedium out of a repetitive data-entry task at work, and a few colleagues on the team use it now too.",
+    stack: ["Python", "FastAPI", "PyMuPDF", "pdfplumber", "Tesseract OCR", "OpenCV"],
+    tags: ["Document AI", "OCR", "Automation"],
+    metric: "In use by colleagues at work · Born-digital + scanned + hybrid · Per-cell confidence scoring",
   },
   {
     slug: "calcsolve",
@@ -194,6 +223,25 @@ export const FEATURED_PROJECTS: Project[] = [
 
 export const MORE_PROJECTS: Project[] = [
   {
+    slug: "aura-survivors",
+    title: "AURA Survivors",
+    oneLiner:
+      "Single-screen survival roguelite shipped to Google Play — Canvas 2D rendering, Capacitor Android build, AdMob and RevenueCat monetisation.",
+    description: "",
+    stack: ["TypeScript", "Canvas 2D", "Capacitor", "Firebase", "RevenueCat"],
+    tags: ["Mobile", "Game Dev", "Shipped"],
+    liveUrl: "https://play.google.com/store/apps/details?id=com.gabyz.aura",
+  },
+  {
+    slug: "legends-draft",
+    title: "Legends Draft",
+    oneLiner:
+      "All-time football XI auction game — multiplayer drafting on a calibrated player economy, with automated balance and telemetry testing.",
+    description: "",
+    stack: ["React Native", "Expo", "TypeScript", "Firebase", "Zustand"],
+    tags: ["Mobile", "Game Dev", "Multiplayer"],
+  },
+  {
     slug: "findbytype",
     title: "FindByType",
     oneLiner:
@@ -219,7 +267,7 @@ export const MORE_PROJECTS: Project[] = [
     slug: "blast-ring",
     title: "Blast Ring",
     oneLiner:
-      "Mobile game on Google Play — wave-based ring shooter with boss fights, power-ups, and skins.",
+      "Wave-based ring shooter built in Unity — boss fights, power-ups, and unlockable skins.",
     description: "",
     stack: ["Unity", "C#", "Google Play"],
     tags: ["Mobile", "Game Dev"],
@@ -256,8 +304,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
     org: "Westcon-Comstor",
     location: "Sydney",
     summary:
-      "Technical point of contact for channel partners across networking and cybersecurity vendor portfolios at one of APAC's largest IT distributors.",
+      "Technical point of contact for channel partners across networking, cybersecurity, and AWS cloud vendor portfolios at one of APAC's largest IT distributors.",
     highlights: [
+      "Expanded into the AWS Cloud practice in mid-2026 — hands-on presales through AWS proof-of-concept builds and technical demonstrations, with exposure to Migration Acceleration Program (MAP) assessments",
       "Scope and propose solutions based on customer environment assessments",
       "Prepare technical quotations aligned with commercial targets",
       "Translate vendor technology into business value for non-technical buyers",

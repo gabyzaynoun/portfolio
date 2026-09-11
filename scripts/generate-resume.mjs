@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 /**
- * Generates Gaby Zaynoun's resume as a single-page, ATS-friendly DOCX.
+ * Generates Gaby Zaynoun's resume as an ATS-friendly DOCX (two pages), which
+ * scripts/docx-to-pdf.mjs then renders to PDF.
  *
- * Why DOCX and not PDF: most ATS systems parse DOCX more reliably; recruiters
- * convert to PDF themselves if needed. Single column, system-default Arial
- * (universally available), no fancy multi-column layouts that ATS scrambles.
+ * Why DOCX is the source and the PDF is derived: ATS systems parse DOCX more
+ * reliably, but a human clicking "Download Resume" — often on a phone — wants a
+ * PDF that opens instantly. Deriving one from the other means they cannot drift,
+ * because there is no second layout codepath. Single column, system-default
+ * Arial (universally available), no multi-column layouts that ATS scrambles.
  *
  * Source-of-truth principle: every claim here mirrors what's on the portfolio
  * (lib/content.ts + lib/ai-context.ts) — same role title, same metrics, same
@@ -271,6 +274,28 @@ const doc = new Document({
         ),
 
         projectHeader(
+          "GabyGPT",
+          "TypeScript, Node.js, LM Studio, Qwen3.5-4B, local inference",
+        ),
+        bullet(
+          "Private assistant running entirely on a self-hosted open-weights model — no hosted AI API anywhere in the request path.",
+        ),
+        bullet(
+          "System policy, persistent memory, and conversation are kept separate and separately versioned; policy and memory share one system message with policy given precedence, so a remembered preference cannot silently override a behavioural rule.",
+        ),
+
+        projectHeader(
+          "Universal PDF-to-Excel Converter",
+          "Python, FastAPI, PyMuPDF, pdfplumber, Tesseract OCR, OpenCV",
+        ),
+        bullet(
+          "Converts born-digital, scanned, and hybrid PDFs into structured .xlsx — unruled tables, tables spanning page breaks, merged cells, and OCR for scanned pages.",
+        ),
+        bullet(
+          "Per-cell confidence scoring flags low-confidence extractions for review; currency is stored as numbers so Excel can total columns while still displaying formatted values.",
+        ),
+
+        projectHeader(
           "CalcSolve",
           "Next.js, Supabase, Stripe, Claude API",
         ),
@@ -304,7 +329,7 @@ const doc = new Document({
 
         projectHeader(
           "Also shipped",
-          "FindByType (Next.js quiz platform with affiliate monetisation), Q-Lex (sci-fi cyberpunk novel with 150 AI-generated illustrations, published on Amazon Kindle), Blast Ring (Unity mobile game, Google Play Store)",
+          "FindByType (Next.js quiz platform with affiliate monetisation), Q-Lex (sci-fi cyberpunk novel with 150 AI-generated illustrations, published on Amazon Kindle), AURA Survivors (survival roguelite live on Google Play — Canvas 2D, Capacitor, AdMob and RevenueCat), Blast Ring (Unity mobile game)",
         ),
 
         /* ─── Technical Skills ─── */
@@ -387,6 +412,30 @@ const doc = new Document({
   ],
 });
 
+/* The committed resume is hand-maintained and currently AHEAD of this script —
+   it carries content this file does not (the Westcon AWS Cloud practice work,
+   the OneView PDF-to-Excel adoption, richer Stoneglass detail). Overwriting it
+   silently loses that, so refuse unless the caller explicitly asks. Bring this
+   script up to date with the DOCX before ever passing --force. */
+const { existsSync } = await import("node:fs");
+if (existsSync(OUT) && !process.argv.includes("--force")) {
+  console.error(
+    `Refusing to overwrite ${OUT}.
+
+` +
+      `That file is hand-maintained and currently contains content this script does
+` +
+      `not reproduce. Regenerating would silently discard it.
+
+` +
+      `If you really mean to replace it, update this script to match the DOCX first,
+` +
+      `then re-run with --force. To rebuild only the PDF, use: npm run resume:pdf`,
+  );
+  process.exit(1);
+}
+
 const buffer = await Packer.toBuffer(doc);
 await writeFile(OUT, buffer);
 console.log(`Wrote ${OUT} — ${(buffer.length / 1024).toFixed(1)}KB`);
+console.log("Run `npm run resume:pdf` to re-render the PDF.");

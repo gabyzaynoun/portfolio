@@ -67,7 +67,8 @@ export function Hero() {
             </Link>
             <a
               href={SITE.resumeUrl}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-11 items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elev)] px-5 text-sm text-[var(--color-fg)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
             >
               <DownloadIcon />

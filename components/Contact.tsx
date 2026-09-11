@@ -10,8 +10,8 @@ export function Contact() {
         Let&rsquo;s talk
       </h2>
       <p className="reveal mb-10 max-w-2xl text-lg leading-relaxed text-[var(--color-fg-muted)]">
-        Open to talk about AI Solutions Engineer, AI presales, and AI consulting opportunities in
-        Australia.
+        Always happy to talk about agentic AI &mdash; what it&rsquo;s actually good for, where it
+        breaks, and what I&rsquo;m building next.
       </p>
 
       <div className="reveal flex flex-wrap gap-3" style={{ transitionDelay: "100ms" }}>
