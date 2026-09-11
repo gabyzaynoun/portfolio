@@ -6,6 +6,9 @@ import { GREETING, SUGGESTED_QUESTIONS } from "@/lib/ai-context";
 type Role = "user" | "assistant";
 type Message = { role: Role; content: string };
 
+const TRUNCATED_NOTE =
+  "(That reply was cut short — the AI service took longer than usual. Ask again, or reach out via the Contact section.)";
+
 const CONTACT_FALLBACK =
   "I hit an error reaching the AI service. Please email gabyzaynoun6@gmail.com or check the Contact section.";
 
@@ -80,6 +83,7 @@ export function ChatPanel({
 
       const ctrl = new AbortController();
       abortRef.current = ctrl;
+      let accumulated = "";
 
       try {
         const res = await fetch("/api/chat", {
@@ -115,7 +119,6 @@ export function ChatPanel({
         const reader = res.body.getReader();
         const decoder = new TextDecoder();
         let buffer = "";
-        let accumulated = "";
 
         while (true) {
           const { value, done } = await reader.read();
@@ -158,7 +161,14 @@ export function ChatPanel({
         if ((err as Error).name === "AbortError") return;
         setMessages((prev) => {
           const copy = [...prev];
-          copy[copy.length - 1] = { role: "assistant", content: CONTACT_FALLBACK };
+          // Keep whatever already streamed — a truncated answer is more use
+          // than none — and append the fallback rather than replacing it.
+          copy[copy.length - 1] = {
+            role: "assistant",
+            content: accumulated
+              ? `${accumulated}\n\n${TRUNCATED_NOTE}`
+              : CONTACT_FALLBACK,
+          };
           return copy;
         });
       } finally {

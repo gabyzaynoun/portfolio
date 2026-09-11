@@ -17,7 +17,16 @@ type IncomingMessage = { role: "user" | "assistant"; content: string };
 let _client: Anthropic | null = null;
 function getClient(): Anthropic {
   if (!_client) {
-    _client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
+    _client = new Anthropic({
+      apiKey: env.ANTHROPIC_API_KEY,
+      // Fail inside our own handler rather than being hard-killed by Vercel.
+      // maxDuration for this route is 60s; give up at 45s so the catch below
+      // can stream a real message back instead of the client seeing a 504.
+      timeout: 45_000, // ms
+      // The SDK default of 2 retries stacks latency on an already-slow call,
+      // which is what pushed requests past the old 30s ceiling.
+      maxRetries: 1,
+    });
   }
   return _client;
 }
